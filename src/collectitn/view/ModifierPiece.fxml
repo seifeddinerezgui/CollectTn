@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="549.0" prefWidth="1014.0" stylesheets="@qrcodestyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collecti.gui.ModifierPieceController">
+   <children>
+      <Line endX="803.0" endY="-70.0" layoutX="211.0" layoutY="115.0" startX="-211.0" startY="-70.0" stroke="WHITE" />
+      <Label layoutX="215.0" layoutY="14.0" prefHeight="30.0" prefWidth="173.0" text="Modifier la piece" textFill="WHITE">
+         <font>
+            <Font name="System Bold" size="20.0" />
+         </font>
+      </Label>
+      <Label layoutX="87.0" layoutY="148.0" text="nom" />
+      <Label layoutX="83.0" layoutY="184.0" text="description" />
+      <Label layoutX="85.0" layoutY="223.0" text="categorie" />
+      <Label layoutX="85.0" layoutY="254.0" text="maison de vente" />
+      <Label layoutX="82.0" layoutY="295.0" text="prix de depart" />
+      <TextField fx:id="tfnom" layoutX="215.0" layoutY="141.0" />
+      <TextField fx:id="tfdesc" layoutX="215.0" layoutY="177.0" />
+      <ComboBox fx:id="menucat" layoutX="215.0" layoutY="219.0" prefHeight="25.0" prefWidth="155.0" />
+      <TextField fx:id="tfidm" layoutX="215.0" layoutY="250.0" />
+      <TextField fx:id="tfpd" layoutX="215.0" layoutY="288.0" />
+      <Button fx:id="btnbrowse" layoutX="215.0" layoutY="326.0" mnemonicParsing="false" onAction="#ImportPhoto" prefHeight="31.0" prefWidth="155.0" text="choose file" />
+      <Button fx:id="btnmodifier" layoutX="215.0" layoutY="381.0" mnemonicParsing="false" onAction="#UpdatePiece" prefHeight="30.0" prefWidth="149.0" text="modifier" />
+      <Label fx:id="ctrlnom" layoutX="411.0" layoutY="156.0" />
+      <Label fx:id="ctrldesc" layoutX="411.0" layoutY="192.0" />
+      <Label fx:id="ctrlcat" layoutX="411.0" layoutY="223.0" />
+      <Label fx:id="ctrlidm" layoutX="411.0" layoutY="254.0" />
+      <Label fx:id="ctrlpd" layoutX="411.0" layoutY="286.0" />
+      <Button fx:id="btnretour" layoutX="92.0" layoutY="424.0" mnemonicParsing="false" onAction="#Back" text="retour" />
+      <Label layoutX="84.0" layoutY="333.0" text="image du piece" />
+      <Label fx:id="importPhoto" layoutX="276.0" layoutY="347.0" />
+   </children>
+</AnchorPane>
