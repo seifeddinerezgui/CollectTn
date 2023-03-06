@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package collecti.gui;
+package collectitn.gui;
 
 
 import collecti.entity.Pieces;
@@ -18,7 +18,6 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-//import java.time.Duration;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.ArrayList;
@@ -33,28 +32,22 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.SplitMenuButton;
 import javafx.scene.control.TextField;
 import javafx.scene.control.MenuItem;
-import javafx.scene.layout.Region;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
-import javafx.util.Duration;
-//import org.controlsfx.control.Notifications;
 
 /**
  * FXML Controller class
  *
  * @author acer
  */
-public class AjouterPieceController implements Initializable {
+public class ModifierPieceController implements Initializable {
 
     @FXML
     private TextField tfnom;
@@ -67,7 +60,7 @@ public class AjouterPieceController implements Initializable {
     @FXML
     private ComboBox<String> menucat;
     @FXML
-    private Button btnajouter;
+    private Button btnmodifier;
     PiecesServices ps = new PiecesServices();
     CategoriesServices cs = new CategoriesServices();
     @FXML
@@ -84,8 +77,6 @@ public class AjouterPieceController implements Initializable {
     private Button btnretour;
 
     Connection cnx;
-    //Notifications no;
-    String erreur;
     private FileChooser fileChooser = new FileChooser();
     @FXML
     private Button btnbrowse;
@@ -98,18 +89,7 @@ public class AjouterPieceController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         try {
-            /*   List<Categories> listcat;
-            listcat = cs.getAll();
-            //System.out.print(listcat);
-            List<String> listTest= new ArrayList();
-            for  (int i=0 ; i<=listcat.size();i++) {
-            String nomc = listcat.get(i).getNomCat().toString();
-            listTest.add(nomc);
-            
-            }
-            ObservableList<String> CategorieCombo = FXCollections.observableArrayList(listTest);
-            menucat.setItems(CategorieCombo);
-             */
+
             String sql = "SELECT categories.nom_cat as nomcat FROM categories ";
             ObservableList<String> CategorieCombo = FXCollections.observableArrayList();
 
@@ -140,9 +120,9 @@ public class AjouterPieceController implements Initializable {
     }
 
     @FXML
-    private void ajouterPiece(ActionEvent event) {
+    private void UpdatePiece(ActionEvent event) {
 
-             // Check if any required fields are empty
+         // Check if any required fields are empty
     if (tfnom.getText().isEmpty() || tfidm.getText().isEmpty() || tfpd.getText().isEmpty() || tfdesc.getText().isEmpty() || menucat.getValue() == null) {
         // Display error message for each empty field
         if (tfnom.getText().isEmpty()) {
@@ -170,47 +150,43 @@ public class AjouterPieceController implements Initializable {
         } else {
             ctrlpd.setText("");
         }
-        } else {
-            ctrlnom.setText("");
-            ctrlidm.setText("");
-            ctrlpd.setText("");
-            ctrldesc.setText("");
-            ctrlcat.setText("");
-            Pieces p = new Pieces();
-            p.setNom_piece(tfnom.getText());
-            p.setDescription(tfdesc.getText());
-            String Boxcat = menucat.getValue().toString();
-            p.setId_maison(tfidm.getText());
-            p.setPrix_depart(Integer.parseInt(tfpd.getText()));
-            
 
-            
-            String sql = "select categories.id_cat as idc from categories where nom_cat='" + Boxcat + "'";
-            ObservableList<Integer> CategorieCombo = FXCollections.observableArrayList();
-            cnx = Maconnection.getInstance().getCnx();
-            PreparedStatement psc;
-            try {
-                psc = cnx.prepareStatement(sql);
+    } else {
+        // All required fields are filled, so create a new Pieces object and set its attributes
+        Pieces p = new Pieces();
+        p.setNom_piece(tfnom.getText());
+        p.setDescription(tfdesc.getText());
+        String Boxcat = menucat.getValue().toString();
+        p.setId_maison(tfidm.getText());
+        p.setPrix_depart(Integer.parseInt(tfpd.getText()));
 
-                ResultSet rs = psc.executeQuery(sql);
-                while (rs.next()) {
-
-                    int idcat = rs.getInt("idc");
-                    CategorieCombo.add(idcat);
-                    //new Categories(rs.getInt("cat"))
-
-                    //CategorieCombo.add(s);
-                }
-                int id = CategorieCombo.get(0);
-                p.setCat(id);
-                p.setImg(importPhoto.getText());
-                ps.ajouter(p);
-                reset();
-            } catch (SQLException ex) {
-                Logger.getLogger(AjouterPieceController.class.getName()).log(Level.SEVERE, null, ex);
+        // Get the ID of the selected category from the database
+        String sql = "SELECT id_cat FROM categories WHERE nom_cat=?";
+        cnx = Maconnection.getInstance().getCnx();
+        PreparedStatement psc;
+        try {
+            psc = cnx.prepareStatement(sql);
+            psc.setString(1, Boxcat);
+            ResultSet rs = psc.executeQuery();
+            if (rs.next()) {
+                int idcat = rs.getInt("id_cat");
+                p.setCat(idcat);
             }
 
+        } catch (SQLException ex) {
+            Logger.getLogger(AjouterPieceController.class.getName()).log(Level.SEVERE, null, ex);
         }
+
+        // Set the image path for the Pieces object
+        p.setImg(importPhoto.getText());
+
+        // Call the update method from the PiecesService class to update the database with the new Pieces object
+        PiecesServices ps = new PiecesServices();
+        ps.update(p);
+
+        // Reset all input fields and error messages
+        reset();
+    }
     }
 
     @FXML
@@ -219,14 +195,7 @@ public class AjouterPieceController implements Initializable {
 
             //navigation
             Parent loader = FXMLLoader.load(getClass().getResource("AfficherPiece.fxml"));
-        Scene scene = new Scene(loader);
-        Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-        stage.setScene(scene);
-        stage.setTitle("My Window Title"); // set the title of the window
-        stage.setResizable(false); // make the window not resizable
-        Region root = (Region) loader.lookup("#root"); // get the root node of the scene
-        root.setPrefSize(800, 600); // set the preferred size of the root node
-        stage.show(); // show the window
+            btnretour.getScene().setRoot(loader);
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

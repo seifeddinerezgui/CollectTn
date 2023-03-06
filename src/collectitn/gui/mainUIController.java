@@ -1,4 +1,4 @@
-package collecti.gui;
+package collectitn.gui;
 
 import com.google.zxing.*;
 import com.google.zxing.client.j2se.BufferedImageLuminanceSource;

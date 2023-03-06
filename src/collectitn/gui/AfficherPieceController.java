@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package collecti.gui;
+package collectitn.gui;
 
 import collecti.entity.Pieces;
 import collecti.tools.Maconnection;

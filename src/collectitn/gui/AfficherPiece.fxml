@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="601.0" prefWidth="1225.0" stylesheets="@qrcodestyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collecti.gui.AfficherPieceController">
+<AnchorPane id="AnchorPane" prefHeight="601.0" prefWidth="1225.0" stylesheets="@qrcodestyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collectitn.gui.AfficherPieceController">
    <children>
       <Button fx:id="btnretour" layoutX="14.0" layoutY="518.0" mnemonicParsing="false" onAction="#Back" prefHeight="31.0" prefWidth="57.0" text="retour" />
       <Button fx:id="btnajouter" layoutX="147.0" layoutY="531.0" mnemonicParsing="false" onMouseClicked="#AjouterPiece" prefHeight="25.0" prefWidth="153.0" text="ajouter" />

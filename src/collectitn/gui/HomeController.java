@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package collecti.gui;
+package collectitn.gui;
 
 import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
