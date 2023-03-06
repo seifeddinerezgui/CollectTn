@@ -5,7 +5,7 @@
  */
 package collectitn.services;
 
-import collecti.entity.Categories;
+import collectitn.entites.Categories;
 import java.util.List;
 
 /**

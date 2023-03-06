@@ -5,8 +5,8 @@
  */
 package collectitn.gui;
 
-import collecti.entity.Pieces;
 import collecti.tools.Maconnection;
+import collectitn.entites.Pieces;
 import collectitn.services.PiecesServices;
 import com.google.zxing.BarcodeFormat;
 import com.google.zxing.BinaryBitmap;

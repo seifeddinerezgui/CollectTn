@@ -4,8 +4,7 @@
  * and open the template in the editor.
  */
 
-package collecti.entity;
-import collecti.entity.Categories;
+package collectitn.entites;
 import java.sql.Blob;
 
 /**

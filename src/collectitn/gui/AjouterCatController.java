@@ -5,8 +5,8 @@
  */
 package collectitn.gui;
 
-import collecti.entity.Categories;
-import collecti.entity.Pieces;
+
+import collectitn.entites.Categories;
 import collectitn.services.CategoriesServices;
 import java.io.IOException;
 import java.net.URL;

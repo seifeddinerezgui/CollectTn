@@ -9,7 +9,7 @@ package collectitn.services;
  *
  * @author acer
  */
-import collecti.entity.Pieces;
+import collectitn.entites.Pieces;
 import java.util.List;
 
 public interface IPiecesServices  {

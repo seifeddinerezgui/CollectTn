@@ -12,9 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import collecti.entity.Pieces;
-import collecti.entity.Categories;
+
 import collecti.tools.Maconnection;
+import collectitn.entites.Pieces;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.nio.file.Path;

@@ -6,8 +6,9 @@
 package collectitn.gui;
 
 
-import collecti.entity.Pieces;
+
 import collecti.tools.Maconnection;
+import collectitn.entites.Pieces;
 import collectitn.services.CategoriesServices;
 import collectitn.services.PiecesServices;
 import static java.awt.SystemColor.control;
