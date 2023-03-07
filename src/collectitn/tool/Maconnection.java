@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package collecti.tools;
+package collectitn.tool;
 
 import java.sql.Connection;
 import java.sql.DriverManager;

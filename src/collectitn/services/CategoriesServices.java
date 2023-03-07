@@ -5,8 +5,6 @@
  */
 package collectitn.services;
 
-import collecti.tools.Maconnection;
-import collectitn.entites.Categories;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -16,6 +14,10 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
+import collectitn.entites.Pieces;
+import collectitn.entites.Categories;
+import collectitn.tool.Maconnection;
 
 
 /**

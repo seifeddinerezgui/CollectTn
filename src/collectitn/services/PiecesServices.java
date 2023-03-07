@@ -13,8 +13,10 @@ import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
 
-import collecti.tools.Maconnection;
 import collectitn.entites.Pieces;
+import collectitn.entites.Categories;
+import collectitn.tool.Maconnection;
+
 import java.awt.HeadlessException;
 import java.io.File;
 import java.nio.file.Path;
