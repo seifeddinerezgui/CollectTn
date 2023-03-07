@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Rectangle2D?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="538.0" prefWidth="823.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collectitn.gui.HomeController">
+   <children>
+      <ImageView fitHeight="545.0" fitWidth="930.0" layoutX="1.0" layoutY="-7.0" opacity="0.63" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@th-681712122.JPG" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="63.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
+         <viewport>
+            <Rectangle2D height="600.0" width="2500.0" />
+         </viewport>
+         <image>
+            <Image url="@../img/logo_pidev-f-2.png" />
+         </image>
+      </ImageView>
+      <Pane prefHeight="444.0" prefWidth="823.0" stylesheets="@qrcodestyle.css">
+         <children>
+          <Button layoutX="361.0" layoutY="235.0" mnemonicParsing="false" prefHeight="82.0" prefWidth="147.0" text="Enchéres">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btngc" layoutX="619.0" layoutY="235.0" mnemonicParsing="false" onAction="#navigatetocat" prefHeight="82.0" prefWidth="147.0" text=" Categories">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+            <Button fx:id="btngp" layoutX="86.0" layoutY="235.0" minWidth="44.0" mnemonicParsing="false" onAction="#navigatetopiece" prefHeight="82.0" prefWidth="147.0" text=" Pieces">
+               <font>
+                  <Font name="System Bold" size="20.0" />
+               </font>
+            </Button>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

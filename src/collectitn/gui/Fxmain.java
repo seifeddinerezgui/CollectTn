@@ -5,6 +5,12 @@
  */
 package collectitn.gui;
 
+
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+
 import java.io.IOException;
 import javafx.application.Application;
 import javafx.event.ActionEvent;
@@ -23,15 +29,18 @@ import javafx.stage.Stage;
 public class Fxmain extends Application {
     
     @Override
-    public void start(Stage primaryStage) throws IOException  {
-     Parent root = FXMLLoader.load(getClass().getResource("AfficherEnchere.FXML"));
-        
-        
-        primaryStage.setTitle("Enchere Partner");
-        Scene Scene = new Scene(root);
-        primaryStage.setScene(Scene );
+
+    public void start(Stage primaryStage) throws Exception  {
+          Parent roothome = FXMLLoader.load(getClass().getResource("Home.fxml"));
+
+        primaryStage.setTitle("collecti.tn");
+        primaryStage.setScene(new Scene(roothome));
+        primaryStage.sizeToScene();
+//        primaryStage.setResizable(false);
         primaryStage.show();
-     
+    
+
+
     }
 
     /**

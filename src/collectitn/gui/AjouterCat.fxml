@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXListView?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="400.0" prefWidth="630.0" stylesheets="@qrcodestyle.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collectitn.gui.AjouterCatController">
+   <children>
+      <Label layoutX="146.0" layoutY="14.0" text="ajouter une categorie">
+         <font>
+            <Font name="Broadway" size="23.0" />
+         </font>
+      </Label>
+      <Label layoutX="119.0" layoutY="171.0" text="categorie">
+         <font>
+            <Font name="System Bold" size="12.0" />
+         </font>
+      </Label>
+      <TextField fx:id="tfcat" layoutX="223.0" layoutY="164.0" />
+      <Button fx:id="btncat" layoutX="226.0" layoutY="268.0" mnemonicParsing="false" onAction="#ajouterCat" prefHeight="25.0" prefWidth="149.0" text="ajouter" />
+      <Line endX="426.0" layoutX="174.0" layoutY="52.0" startX="-174.0" stroke="WHITE" />
+      <Label fx:id="ctrlcat" layoutX="406.0" layoutY="192.0" />
+      <Button fx:id="btnretour" layoutX="44.0" layoutY="347.0" mnemonicParsing="false" onAction="#BackHome" text="retour" />
+      <JFXListView fx:id="listcat" layoutX="439.0" layoutY="50.0" prefHeight="351.0" prefWidth="200.0" />
+      <Line endX="138.0" endY="-53.0" layoutX="301.0" layoutY="103.0" startX="138.0" startY="-103.0" stroke="WHITE" />
+      <Label layoutX="440.0" layoutY="14.0" prefHeight="31.0" prefWidth="200.0" text="liste des categories">
+         <font>
+            <Font name="Broadway" size="23.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

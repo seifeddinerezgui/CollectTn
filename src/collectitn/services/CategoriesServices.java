@@ -4,6 +4,7 @@
  * and open the template in the editor.
  */
 package collectitn.services;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -13,17 +14,16 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+
 import collectitn.entites.Pieces;
 import collectitn.entites.Categories;
 import collectitn.tool.Maconnection;
+
 
 /**
  *
  * @author acer
  */
-
-   
-
 public class CategoriesServices implements ICategoriesServices {
 
     Connection cnx;
@@ -34,7 +34,7 @@ public class CategoriesServices implements ICategoriesServices {
 
     @Override
     public void ajouter(Categories c) {
-try {
+        try {
             String sql = "insert into categories(id_cat,nom_cat)"
                     + "values (?,?)";
             PreparedStatement ste = cnx.prepareStatement(sql);
@@ -44,11 +44,12 @@ try {
             System.out.println("categorie ajoutée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
-        }    }
+        }
+    }
 
     @Override
     public List<Categories> getAll() {
-   List<Categories> Categories = new ArrayList<>();
+        List<Categories> Categories = new ArrayList<>();
         try {
             String sql = "select * from categories";
             Statement ste = cnx.createStatement();
@@ -63,7 +64,8 @@ try {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        return Categories;    }
+        return Categories;
+    }
 
     @Override
     public List<Categories> findById(int id) {
@@ -71,12 +73,12 @@ try {
     }
 
     @Override
-    public void  modifierCategorie(String nom_cat,Categories p){
- String sql = "update categories set nom_cat=? where id_cat=?";
+    public void modifierCategorie(String nom_cat, Categories p) {
+        String sql = "update categories set nom_cat=? where id_cat=?";
         try {
             PreparedStatement ste = cnx.prepareStatement(sql);
             ste.setString(1, nom_cat);
-            ste.setInt(2,p.getIdCat());
+            ste.setInt(2, p.getIdCat());
             ste.executeUpdate();
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
@@ -93,6 +95,6 @@ try {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-}
+    }
 
 }
