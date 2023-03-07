@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package collecti.services;
+package collectitn.services;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -12,9 +12,9 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import collecti.entity.Pieces;
-import collecti.entity.Categories;
-import collecti.tools.Maconnection;
+import collectitn.entites.Pieces;
+import collectitn.entites.Categories;
+import collectitn.tool.Maconnection;
 import java.awt.HeadlessException;
 import java.io.File;
 import java.nio.file.Path;

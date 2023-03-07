@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" prefHeight="583.0" prefWidth="942.0" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collectitn.gui.EncherePartnerController">
+   <children>
+      <TextField fx:id="prixDepartField" editable="false" layoutX="163.0" layoutY="350.0" prefHeight="31.0" prefWidth="158.0" promptText="prix Depart" AnchorPane.leftAnchor="163.0" />
+      <DatePicker fx:id="DateDebutField" layoutX="163.0" layoutY="401.0" promptText="Date Debut" AnchorPane.leftAnchor="163.0" />
+      <DatePicker fx:id="DateFinField" layoutX="163.0" layoutY="447.0" promptText="Date Fin" AnchorPane.leftAnchor="163.0" />
+      <Label layoutX="45.0" layoutY="356.0" text="prix depart :">
+         <font>
+            <Font name="Georgia Bold Italic" size="16.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="405.0" text="Date debut : ">
+         <font>
+            <Font name="Georgia Bold Italic" size="16.0" />
+         </font></Label>
+      <Label layoutX="40.0" layoutY="450.0" text="Date fin">
+         <font>
+            <Font name="Georgia Bold Italic" size="16.0" />
+         </font></Label>
+      <ComboBox fx:id="PieceFields" layoutX="107.0" layoutY="165.0" onAction="#ActionDepImage" prefHeight="31.0" prefWidth="218.0" promptText="Votre Chef d'oeuvre" AnchorPane.leftAnchor="107.0" />
+      <Label layoutX="24.0" layoutY="171.0" text="Pieces  :">
+         <font>
+            <Font name="Georgia Bold Italic" size="16.0" />
+         </font></Label>
+      <Label fx:id="PieceCntrlSaisie" layoutX="334.0" layoutY="172.0" textFill="#d01313" />
+      <Button layoutX="290.0" layoutY="508.0" mnemonicParsing="false" onAction="#ajouterEnchere" text="Ajouter enchére" />
+      <Button fx:id="afficherBtn" layoutX="302.0" layoutY="543.0" mnemonicParsing="false" onAction="#AfficherEnchere" text="Mes Encheres" />
+      <ImageView fx:id="logoImg" fitHeight="110.0" fitWidth="174.0" layoutX="3.0" layoutY="-17.0" pickOnBounds="true">
+         <image>
+            <Image url="@../tool/images/324684991_567150888805417_556154642716832850_n.png" />
+         </image></ImageView>
+      <ImageView fx:id="background" blendMode="SRC_ATOP" fitHeight="583.0" fitWidth="643.0" layoutX="419.0" pickOnBounds="true" smooth="false">
+         <image>
+            <Image url="@../tool/images/istockphoto-1072095792-612x612.jpg" />
+         </image>
+      </ImageView>
+      <Label layoutX="90.0" layoutY="105.0" text="Ajouter Enchere">
+         <font>
+            <Font name="Georgia Bold Italic" size="16.0" />
+         </font>
+      </Label>
+      <ImageView fx:id="imgPiece" fitHeight="121.0" fitWidth="205.0" layoutX="114.0" layoutY="213.0" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="PrixDepartCntrlSaisie" layoutX="228.0" layoutY="381.0" textFill="#e40000" />
+      <Label fx:id="DateFinCntrlSaisie" layoutX="228.0" layoutY="478.0" textFill="#e40000" />
+      <Label fx:id="DateDebutCntrlSaisie" layoutX="214.0" layoutY="426.0" textFill="#c30000" />
+      <Label fx:id="errorLabel" layoutX="163.0" layoutY="478.0" textFill="#c90000" />
+   </children>
+   <cursor>
+      <Cursor fx:constant="DEFAULT" />
+   </cursor>
+</AnchorPane>

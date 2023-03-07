@@ -3,13 +3,13 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package collecti.services;
+package collectitn.services;
 
 /**
  *
  * @author acer
  */
-import collecti.entity.Pieces;
+import collectitn.entites.Pieces;
 import java.util.List;
 
 public interface IPiecesServices  {

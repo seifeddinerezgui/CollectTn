@@ -3,9 +3,9 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package collecti.services;
+package collectitn.services;
 
-import collecti.entity.Categories;
+import collectitn.entites.Categories;
 import java.util.List;
 
 /**

@@ -4,8 +4,8 @@
  * and open the template in the editor.
  */
 
-package collecti.entity;
-import collecti.entity.Categories;
+package collectitn.entites;
+
 import java.sql.Blob;
 
 /**
@@ -21,6 +21,11 @@ public class Pieces {
     private int cat;
     private String img ;
     private int etat;
+
+    public Pieces(int id_piece, int prix_depart) {
+        this.id_piece = id_piece;
+        this.prix_depart = prix_depart;
+    }
 
     public Pieces(int id_piece, String nom_piece, String description, String id_maison, int prix_depart, int cat, String img, int etat) {
         this.id_piece = id_piece;
