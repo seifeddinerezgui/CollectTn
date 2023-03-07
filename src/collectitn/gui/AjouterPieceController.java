@@ -7,7 +7,7 @@ package collectitn.gui;
 
 
 
-import collecti.tools.Maconnection;
+import collectitn.tool.Maconnection;
 import collectitn.entites.Pieces;
 import collectitn.services.CategoriesServices;
 import collectitn.services.PiecesServices;

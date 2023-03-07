@@ -5,7 +5,7 @@
  */
 package collectitn.gui;
 
-import collecti.tools.Maconnection;
+import collectitn.tool.Maconnection;
 import collectitn.entites.Pieces;
 import collectitn.services.PiecesServices;
 import com.google.zxing.BarcodeFormat;
@@ -428,7 +428,7 @@ public class AfficherPieceController implements Initializable {
     private void exel(MouseEvent event) {
         WritableWorkbook wworkbook;
         try {
-            wworkbook = Workbook.createWorkbook(new File("C:\\Users\\acer\\pieceexel.xls"));
+            wworkbook = Workbook.createWorkbook(new File("C:\\Users\\Aziz\\Desktop\\pieceexel.xls"));
 
             String query = "select id_piece,nom_piece,description,id_maison,prix_depart,cat,img from pieces";
             PreparedStatement ste = cnx.prepareStatement(query);
