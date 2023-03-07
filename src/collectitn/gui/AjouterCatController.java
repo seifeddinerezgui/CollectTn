@@ -114,7 +114,6 @@ public class AjouterCatController implements Initializable {
         stage.setTitle("Home"); // set the title of the window
         stage.setResizable(false); // make the window not resizable
         Region root = (Region) loader.lookup("#root"); // get the root node of the scene
-        root.setPrefSize(800, 600); // set the preferred size of the root node
         stage.show(); // show the window
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
