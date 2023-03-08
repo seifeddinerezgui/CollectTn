@@ -223,7 +223,7 @@ public class AjouterPieceController implements Initializable {
         Scene scene = new Scene(loader);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("My Window Title"); // set the title of the window
+        stage.setTitle("Gestion pieces"); // set the title of the window
         stage.setResizable(false); // make the window not resizable
         Region root = (Region) loader.lookup("#root"); // get the root node of the scene
         stage.show(); // show the window

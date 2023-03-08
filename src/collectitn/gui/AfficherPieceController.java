@@ -257,6 +257,7 @@ public class AfficherPieceController implements Initializable {
             //navigation
             Parent loader = FXMLLoader.load(getClass().getResource("Home.fxml"));
             btnretour.getScene().setRoot(loader);
+            
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }

@@ -6,6 +6,7 @@
 package collectitn.gui;
 
 
+import Alert.AlertDialog;
 import collectitn.entites.Enchere;
 import collectitn.services.EnchereService;
 import java.io.IOException;
@@ -67,7 +68,9 @@ public class DetailEnchereController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
          ModelGridViewController a= new ModelGridViewController();
          Enchere e=a.publicEnchere;
-         imagePiece.setImage(new Image("collectitn/tool/images/"+e.getP().getImg()));
+          String imgName = e.getP().getImg().substring(e.getP().getImg().lastIndexOf("\\") + 1);
+         imagePiece.setImage(new Image("collectitn/tool/images/"+imgName));
+//         imagePiece.setImage(new Image("collectitn/tool/images/"+e.getP().getImg()));
          nomPiece.setText(e.getP().getNom_piece());
          descPiece.setText(e.getP().getDescription());
          dateDebut.setText(e.getDate_debut().toString());
@@ -105,7 +108,8 @@ public class DetailEnchereController implements Initializable {
         e.setIdUser(1);
          EnchereService sr = new EnchereService();
          sr.updateEnchere(e, e.getId());
-        
+                        AlertDialog.showNotification("Enchere","avec succee new valeur = "+prix.getValue()+"Tnd", AlertDialog.image_checked);
+
     }
 
     @FXML

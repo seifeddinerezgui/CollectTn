@@ -64,8 +64,10 @@ public class ModelGridViewController implements Initializable {
     }    
      public void setEnchere(Enchere e) {
          ee=e;
-        
-        pieceImg.setImage(new Image("collectitn/tool/images/"+e.getP().getImg()));
+         System.out.println("vghgbjnk,"+"collectitn/tool/images/"+e.getP().getImg());
+         System.out.println("gridmoe"+e.toString());
+          String imgName = e.getP().getImg().substring(e.getP().getImg().lastIndexOf("\\") + 1);
+         pieceImg.setImage(new Image("collectitn/tool/images/"+imgName));
         namePiece.setText(e.getP().getNom_piece());
         dateDebutPiece.setText(e.getDate_debut().toString());
        dateFinPiece.setText(e.getDate_fin().toString());
@@ -84,7 +86,7 @@ public class ModelGridViewController implements Initializable {
             //navigation
             
             publicEnchere=ee;
-
+           
             
             Parent loader = FXMLLoader.load(getClass().getResource("DetailEnchere.fxml"));
             detailsbtn.getScene().setRoot(loader);
@@ -92,4 +94,5 @@ public class ModelGridViewController implements Initializable {
             System.out.println(ex.getMessage());
         }
    }
+    
 }

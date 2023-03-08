@@ -164,7 +164,7 @@ public class EncherePartnerController implements Initializable {
                 int id_piece = rs.getInt(1);
                 String nom_piece = rs.getString("nom_piece");
                 String description = rs.getString("description");
-                int id_maison = rs.getInt("id_maison");
+                String id_maison = rs.getString("id_maison");
                 int prix_depart = rs.getInt("prix_depart");
                 int cat = rs.getInt("cat");
                 String img =rs.getString("img");
@@ -222,7 +222,10 @@ public class EncherePartnerController implements Initializable {
              //   Image img = new Image(getClass().getResourceAsStream(path));
             }
             prixDepartField.setText(ListeP.get(0));
-            imgPiece.setImage(new Image("/images/"+ListePp.get(0)));
+//            System.out.println("collectitn/tool/images/"+ListePp.get(0));
+//        imgPiece.setImage(new Image("collectitn/tool/images/"+ListePp.get(0)));
+        String imgName = ListePp.get(0).substring(ListePp.get(0).lastIndexOf("\\") + 1);
+         imgPiece.setImage(new Image("collectitn/tool/images/"+imgName));
             //imgPrieceId.setImage(img);
         } catch (SQLException ex) {
             Logger.getLogger(EncherePartnerController.class.getName()).log(Level.SEVERE, null, ex);
@@ -277,6 +280,17 @@ public class EncherePartnerController implements Initializable {
               DateFinCntrlSaisie.setText("Date non valide");
              return verification2Date = false;
         
+        }
+    }
+
+    @FXML
+    private void backtohome(MouseEvent event) {
+        try {
+            //navigation
+            Parent loader = FXMLLoader.load(getClass().getResource("Home.fxml"));
+            logoImg.getScene().setRoot(loader);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
         }
     }
 

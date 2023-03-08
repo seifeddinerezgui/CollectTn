@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.image.Image?>
@@ -11,7 +12,7 @@
 
 <AnchorPane id="AnchorPane" nodeOrientation="LEFT_TO_RIGHT" stylesheets="@stylesheet.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="collectitn.gui.AfficherEnchereController">
    <children>
-      <ScrollPane layoutX="-1.0" layoutY="176.0" prefHeight="637.0" prefWidth="1195.0" stylesheets="@stylesheet.css">
+      <ScrollPane layoutX="-1.0" layoutY="176.0" prefHeight="637.0" prefWidth="1195.0">
          <content>
             <GridPane fx:id="grid" prefHeight="635.0" prefWidth="1194.0" stylesheets="@stylesheet.css">
               <columnConstraints>
@@ -25,8 +26,12 @@
               </rowConstraints>
             </GridPane>
          </content>
+         <stylesheets>
+            <URL value="@stylesheet.css" />
+            <URL value="@stylesheet.css" />
+         </stylesheets>
       </ScrollPane>
-      <ImageView fx:id="logoImg" fitHeight="177.0" fitWidth="277.0" layoutX="32.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="logoImg" fitHeight="177.0" fitWidth="277.0" layoutX="32.0" onMouseClicked="#navigatetohome" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../tool/images/324684991_567150888805417_556154642716832850_n.png" />
          </image>

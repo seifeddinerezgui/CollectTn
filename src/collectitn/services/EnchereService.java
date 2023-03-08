@@ -314,4 +314,32 @@ public void sendMail(Enchere e){
                 throw new RuntimeException(me);
             }
 }
+
+ public List<Enchere> afficherEnchere3() {
+        List<Enchere> enchere = new ArrayList<>();//instansiation
+        
+        try {
+            String s = "select * from enchere WHERE Etat=2";// req
+            Statement st = cnx.createStatement();// gestionnaire des req
+            ResultSet rs;/// exe req
+            rs = st.executeQuery(s);
+
+            while (rs.next()) {
+Enchere p = new Enchere();
+                //donner elet and next
+                p.setId(rs.getInt("id"));
+                p.setP(getPiece(rs.getInt("idPiece")));
+                p.setPrix_actuel(rs.getFloat(3));
+                p.setDate_debut(rs.getDate("date_debut").toLocalDate());
+                p.setDate_fin(rs.getDate("date_fin").toLocalDate());
+                p.setIdUser(rs.getInt("idUser"));
+                enchere.add(p);
+
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(EnchereService.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        System.out.println(enchere );
+        return enchere;
+    }
 }

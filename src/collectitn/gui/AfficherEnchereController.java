@@ -46,8 +46,8 @@ public class AfficherEnchereController implements Initializable {
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-        // TODO
-         try {
+      // TODO
+          try {
              Es.checkDate();
             List<Enchere> enchere = Es.afficherEnchere2();
             int row = 0;
@@ -71,7 +71,6 @@ public class AfficherEnchereController implements Initializable {
         } catch (IOException ex ) {
              System.out.println(ex.getMessage());        }
         
-    
 }
 
     private void test(TouchEvent event) {
@@ -82,6 +81,17 @@ public class AfficherEnchereController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }    }
+
+    @FXML
+    private void navigatetohome(MouseEvent event) {
+        try {
+            //navigation
+            Parent loader = FXMLLoader.load(getClass().getResource("Home.fxml"));
+            logoImg.getScene().setRoot(loader);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
 
 
    

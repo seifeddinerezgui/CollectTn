@@ -20,6 +20,12 @@ public class Categories {
     public Categories(){
     }
 
+    public Categories(String nom_cat, List<Pieces> listPiece) {
+        this.nom_cat = nom_cat;
+        this.listPiece = listPiece;
+    }
+    
+
     
     public Categories(int id_cat ) {
         this.id_cat = id_cat;

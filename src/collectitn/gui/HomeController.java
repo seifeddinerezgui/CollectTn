@@ -9,6 +9,7 @@ import com.jfoenix.controls.JFXListView;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
+import static javafx.application.Platform.exit;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -52,7 +53,7 @@ public class HomeController implements Initializable {
         Scene scene = new Scene(loader);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("ajouter une categorie"); // set the title of the window
+        stage.setTitle("Gestion une piece"); // set the title of the window
         stage.setResizable(false); // make the window not resizable
         Region root = (Region) loader.lookup("#root"); // get the root node of the scene
      
@@ -88,7 +89,7 @@ public class HomeController implements Initializable {
         Scene scene = new Scene(loader);
         Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(scene);
-        stage.setTitle("ajouter une categorie"); // set the title of the window
+        stage.setTitle("Enchere"); // set the title of the window
         stage.setResizable(false); // make the window not resizable
         Region root = (Region) loader.lookup("#root"); // get the root node of the scene
      
@@ -114,6 +115,11 @@ public class HomeController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
+    }
+
+    @FXML
+    private void logout(ActionEvent event) {
+        exit() ;
     }
     
 }

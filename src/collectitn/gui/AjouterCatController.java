@@ -8,6 +8,7 @@ package collectitn.gui;
 
 import collectitn.entites.Categories;
 import collectitn.services.CategoriesServices;
+import collectitn.tool.Maconnection;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
@@ -28,10 +29,17 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.ListCell;
+import javafx.scene.control.ListView;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.util.Callback;
 
 /**
  * FXML Controller class
@@ -48,10 +56,11 @@ public class AjouterCatController implements Initializable {
     private Label ctrlcat;
 
     CategoriesServices cs = new CategoriesServices();
+    ObservableList<Categories> listcategories =FXCollections.observableArrayList();
     @FXML
     private Button btnretour;
     @FXML
-    private JFXListView<?> listcat;
+    private JFXListView<Categories> listcat;
     Connection cnx;
 
     /**
@@ -60,30 +69,41 @@ public class AjouterCatController implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-//        List<String> listcat = new ArrayList<String>();
-//        try {
-//            
-//
-//            // Connect to the database
-//            Connection cnx = Maconnection.getInstance().getCnx();
-//            
-//            // Execute a query to retrieve all categories from the database
-//            Statement stmt = cnx.createStatement();
-//            ResultSet rs = stmt.executeQuery("SELECT nom_cat FROM categories");
-//
-//            // Loop through the result set and add each category to the ListView
-//            while (rs.next()) {
-//                String category = rs.getString("nom_cat");
-//                listcat.add(category);
-//            }
-//
-//            // Close the result set, statement, and connection
-////            rs.close();
-////            stmt.close();
-////            cnx.close();
-//        } catch (SQLException ex) {
-//            ex.printStackTrace();
-//        }
+
+try {
+            Connection cnx = Maconnection.getInstance().getCnx();
+            ResultSet rs = cnx.createStatement().executeQuery("select * from categories");
+            while (rs.next()) {
+                listcategories.add(new Categories(
+                        rs.getInt("id_cat"),
+                        rs.getString("nom_cat")
+                ));
+
+            }
+
+        } catch (Exception ex) {
+            Logger.getLogger(AjouterCatController.class.getName()).log(Level.SEVERE, null, ex);
+        }
+
+        
+        listcat.setItems(listcategories);
+
+        listcat.setCellFactory(new Callback<ListView<Categories>, ListCell<Categories>>() {
+            @Override
+            public ListCell<Categories> call(ListView<Categories> listView) {
+                return new ListCell<Categories>() {
+                    @Override
+                    protected void updateItem(Categories item, boolean empty) {
+                        super.updateItem(item, empty);
+                        if (item == null || empty) {
+                            setText(null);
+                        } else {
+                            setText(item.getIdCat()+item.getNomCat());
+                        }
+                    }
+                };
+            }
+        });
     }   
     private void reset() {
     ctrlcat.setText("");

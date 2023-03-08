@@ -61,6 +61,8 @@ public class AfficherEncherePartnerController implements Initializable {
     ObservableList<Enchere> enchere=FXCollections.observableArrayList();
     @FXML
     private TextField rech;
+    @FXML
+    private Button EnchereArchivedid;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
           try {
@@ -99,7 +101,7 @@ public class AfficherEncherePartnerController implements Initializable {
           EnchereService sr = new EnchereService();
         Enchere p = new Enchere();
         sr.supprimerEnchere(p,idList.getSelectionModel().getSelectedItem().getId());
-        AlertDialog.showNotification("supprimer","avec succee", AlertDialog.image_checked);
+        AlertDialog.showNotification("l'enchere"," Enchere a été archivé avec succee", AlertDialog.image_checked);
         afficher();
 
     }
@@ -138,6 +140,17 @@ public class AfficherEncherePartnerController implements Initializable {
     idList.getItems().clear();
     idList.getItems().removeAll(Reservation);
     idList.getItems().addAll(Reservation);
+    }
+
+    @FXML
+    private void goEnchereArchiveed(ActionEvent event) {
+         try {
+            //navigation
+            Parent loader = FXMLLoader.load(getClass().getResource("Archiver.fxml"));
+            EnchereArchivedid.getScene().setRoot(loader);
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
     }
     
 }

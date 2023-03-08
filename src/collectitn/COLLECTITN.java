@@ -5,6 +5,8 @@
  */
 package collectitn;
 
+import collectitn.services.EnchereService;
+
 /**
  *
  * @author acer
@@ -16,6 +18,9 @@ public class COLLECTITN {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+             EnchereService Es = new EnchereService();
+            System.out.println( Es.afficherEnchere2());
+
     }
     
 }
